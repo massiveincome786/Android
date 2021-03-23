@@ -1,0 +1,27 @@
+xml
+
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="100dp"
+    android:id="@+id/btn"
+    android:text="MAPS"
+    android:onClick="btnclick"/>
+
+java
+Button btn;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        btn=findViewById(R.id.btn);
+    }
+    public void btnclick(View v)
+    {
+        Intent i= new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse("31°33'48.6\"N 74°18'53.2\"E"));
+        Intent chooser = Intent.createChooser(i,"Launch Maps");
+        startActivity(chooser);
+
+    }

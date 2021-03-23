@@ -1,0 +1,209 @@
+color tags used in both programs
+<color name="springgreen">#00ff7f</color>
+<color name="Flowergirl">#f498ad</color>
+<color name="Redplum">#db5a6b</color>
+<color name="cyan">#00ffff</color>
+<color name="snow">#ffaf</color>
+<color name="yellow">#e0cf24</color>
+Main activity xml***
+<EditText
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_marginTop="80dp"
+    android:textSize="20dp"
+    android:textColor="@color/black"
+    android:hint="First Name"
+    android:fontFamily="casual"
+    android:gravity="center"
+    android:id="@+id/edt1"/>
+<EditText
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_marginTop="160dp"
+    android:textColor="@color/black"
+    android:textSize="20dp"
+    android:hint="Last Name"
+    android:fontFamily="casual"
+    android:gravity="center"
+    android:id="@+id/edt2"/>
+<EditText
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_marginTop="240dp"
+    android:textColor="@color/black"
+    android:textSize="20dp"
+    android:hint="Father Name"
+    android:fontFamily="casual"
+    android:gravity="center"
+    android:id="@+id/edt3"/>
+<EditText
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_marginTop="320dp"
+    android:textColor="@color/black"
+    android:hint="Eye color"
+    android:textSize="20dp"
+    android:fontFamily="casual"
+    android:gravity="center"
+    android:id="@+id/edt4"/>
+<Button
+    android:layout_width="200dp"
+    android:layout_height="80dp"
+    android:layout_marginTop="440dp"
+    android:layout_centerHorizontal="true"
+    android:backgroundTint="@color/Flowergirl"
+    android:text="Login"
+    android:fontFamily="cursive"
+    android:textColor="@color/black"
+    android:textSize="25dp"
+    android:id="@+id/btn"
+    android:onClick="btnclick"/>
+Main activity java***
+EditText edt1,edt2,edt3,edt4;
+Button btn;
+String txt1,txt2,txt3,txt4;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        edt1=findViewById(R.id.edt1);
+        edt2=findViewById(R.id.edt2);
+        edt3=findViewById(R.id.edt3);
+        edt4=findViewById(R.id.edt4);
+    }
+    public void btnclick (View v)
+    {
+        Intent i =new Intent(getBaseContext(),screen2.class);
+        txt1=edt1.getText().toString();
+        i.putExtra("value1",txt1);
+        txt2=edt2.getText().toString();
+        i.putExtra("value2",txt2);
+        txt3=edt3.getText().toString();
+        i.putExtra("value3",txt3);
+        txt4=edt4.getText().toString();
+        i.putExtra("value4",txt4);
+        startActivity(i);
+        finish();
+    }
+Second Screen xml***
+<TextView
+    android:layout_width="150dp"
+    android:layout_height="80dp"
+    android:layout_marginTop="80dp"
+    android:textSize="20dp"
+    android:textColor="@color/black"
+    android:text="First Name"
+    android:fontFamily="casual"
+    android:gravity="center"
+    android:id="@+id/show1"/>
+<TextView
+    android:layout_width="250dp"
+    android:layout_height="80dp"
+    android:layout_marginTop="80dp"
+    android:layout_marginLeft="159dp"
+    android:gravity="center"
+    android:textSize="20dp"
+    android:fontFamily="casual"
+    android:id="@+id/txt1"/>
+<TextView
+    android:layout_width="150dp"
+    android:layout_height="80dp"
+    android:layout_marginTop="160dp"
+    android:textSize="20dp"
+    android:textColor="@color/black"
+    android:text="Last Name"
+    android:fontFamily="casual"
+    android:gravity="center"
+    android:id="@+id/show2"/>
+<TextView
+    android:layout_width="250dp"
+    android:layout_marginLeft="159dp"
+    android:layout_height="80dp"
+    android:layout_marginTop="160dp"
+    android:gravity="center"
+    android:textSize="20dp"
+    android:fontFamily="casual"
+    android:id="@+id/txt2"/>
+<TextView
+    android:layout_width="150dp"
+    android:layout_height="80dp"
+    android:layout_marginTop="240dp"
+    android:textSize="20dp"
+    android:textColor="@color/black"
+    android:text="Father Name"
+    android:fontFamily="casual"
+    android:gravity="center"
+    android:id="@+id/show3"/>
+<TextView
+    android:layout_width="250dp"
+    android:layout_marginLeft="159dp"
+    android:layout_height="80dp"
+    android:layout_marginTop="240dp"
+    android:gravity="center"
+    android:textSize="20dp"
+    android:fontFamily="casual"
+    android:id="@+id/txt3"/>
+<TextView
+    android:layout_width="150dp"
+    android:layout_height="80dp"
+    android:layout_marginTop="320dp"
+    android:textSize="20dp"
+    android:textColor="@color/black"
+    android:text="Eye Color"
+    android:fontFamily="casual"
+    android:gravity="center"
+    android:id="@+id/show4"/>
+<TextView
+    android:layout_width="250dp"
+    android:layout_marginLeft="159dp"
+    android:layout_height="80dp"
+    android:layout_marginTop="320dp"
+    android:gravity="center"
+    android:textSize="20dp"
+    android:fontFamily="casual"
+    android:id="@+id/txt4"/>
+<Button
+    android:layout_width="200dp"
+    android:layout_height="80dp"
+    android:layout_marginTop="440dp"
+    android:layout_centerHorizontal="true"
+    android:backgroundTint="@color/Redplum"
+    android:text="Back"
+    android:fontFamily="cursive"
+    android:textColor="@color/black"
+    android:textSize="25dp"
+    android:id="@+id/btn"
+    />
+second screen java***
+TextView show1,show2,show3,show4;
+TextView txt1,txt2,txt3,txt4;
+Button btn;
+String v1,v2,v3,v4;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_screen2);
+        show1=findViewById(R.id.show1);
+        show2=findViewById(R.id.show2);
+        show3=findViewById(R.id.show3);
+        show4=findViewById(R.id.show4);
+        txt1=findViewById(R.id.txt1);
+        txt2=findViewById(R.id.txt2);
+        txt3=findViewById(R.id.txt3);
+        txt4=findViewById(R.id.txt4);
+        btn=findViewById(R.id.btn);
+        v1=getIntent().getExtras().getString("value1");
+        txt1.setText(v1);
+        v2=getIntent().getExtras().getString("value2");
+        txt2.setText(v2);
+        v3=getIntent().getExtras().getString("value3");
+        txt3.setText(v3);
+        v4=getIntent().getExtras().getString("value4");
+        txt4.setText(v4);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(screen2.this,MainActivity.class);
+                startActivity(i);
+            }
+        });

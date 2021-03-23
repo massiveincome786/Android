@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="EXOAND"
+            android:layout_marginTop="50dp"
+            android:textSize="20dp"
+            android:id="@+id/expand"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="COLLAPSE"
+            android:layout_marginTop="50dp"
+            android:textSize="20dp"
+            android:id="@+id/collapse"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="HIDE"
+            android:layout_marginTop="50dp"
+            android:textSize="20dp"
+            android:id="@+id/hide"/>
+
+<!--        <Button-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:text="NEW"-->
+<!--            android:layout_marginTop="350dp"-->
+<!--            android:textSize="20dp"-->
+<!--            android:id="@+id/btn1"/>-->
+
+
+
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="55dp"
+        android:id="@+id/bottomscroolview">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/bitcoin"
+            android:id="@+id/imgview"/>
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="55dp"
+        android:id="@+id/bottomscroolview2">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/btn"
+            android:text="NEW"
+            android:background="@drawable/bitcoin"
+            />
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+JAVA
+
+package com.example.pop_upmenu;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.PopupMenu;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static android.icu.text.RelativeDateTimeFormatter.Direction.THIS;
+
+public class MainActivity extends AppCompatActivity {
+
+    Button expand,collapse,hide;
+    BottomSheetBehavior bottomSheetBehavior;
+    ImageView imageView;
+
+    @Override
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        View bottomBehavior=findViewById(R.id.bottomscroolview);
+        bottomSheetBehavior =BottomSheetBehavior.from(bottomBehavior);
+
+
+
+        expand=findViewById(R.id.expand);
+        collapse=findViewById(R.id.collapse);
+        hide=findViewById(R.id.hide);
+
+
+        expand.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+            }
+        });
+
+        collapse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+            }
+        });
+
+        hide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+            }
+        });
+
+    }
+    }

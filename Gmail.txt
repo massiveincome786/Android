@@ -1,0 +1,32 @@
+***xml***
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="100dp"
+    android:id="@+id/btn"
+    android:text="EMAIL"
+    android:onClick="btnclick"/>
+
+***java***
+Button btn;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        btn=findViewById(R.id.btn);
+    }
+    public void btnclick(View v)
+    {
+  
+
+        Intent i= new Intent(Intent.ACTION_SEND);
+        i.setData(Uri.parse("email"));
+        String [] s={"specificcollection@gmail.com","hafizmuhammadali1012@gmail.com"};
+        i.putExtra(Intent.EXTRA_EMAIL,s);
+        i.putExtra(Intent.EXTRA_SUBJECT,"This is a subject");
+        i.putExtra(Intent.EXTRA_TEXT,"Hi! this is the email body");
+        i.setType("message/rfc822");
+        Intent chooser = Intent.createChooser(i,"Launch Email");
+        startActivity(chooser);
+    }
